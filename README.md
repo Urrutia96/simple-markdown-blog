@@ -2,17 +2,17 @@
 
 ### Instalación
 
-Clonar el repositorio.
-Renombrar el archivo `.env.example` a `.env`.
-Crear base de datos `simpleblog`
-Ejecutar `composer install` y `npm install && npm run dev`.
-Ejecutar migraciones y seeders
+1. Clonar el repositorio.
+2. Renombrar el archivo `.env.example` a `.env`.
+3. Crear base de datos `simpleblog`.
+4. Ejecutar `composer install` y `npm install && npm run dev`.
+5. Ejecutar migraciones y seeders
 
 ``` cmd
 php artisan migrate --seed
 ```
 
-Levantar servidor 
+6. Levantar servidor 
 
 ``` cmd 
 php artisan serve

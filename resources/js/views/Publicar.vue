@@ -6,15 +6,15 @@
                 
                 <form @submit.prevent="enviar">
                     <div class="form-group">
-                        <label for="titulo">titulo</label>
+                        <label for="titulo">titulo*</label>
                         <input type="text" class="form-control" v-model="titulo" id="titulo" required>
                     </div>
                     <div class="form-group">
-                        <label for="descripcion">Descripcion</label>
-                        <textarea v-model="decripcion" class="form-control" id="descripcion" rows="3" placeholder="Breve descripcion para el incio"></textarea>
+                        <label for="descripcion">Descripcion*</label>
+                        <textarea v-model="descripcion" class="form-control" id="descripcion" rows="3" placeholder="Breve descripcion para el incio"></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Contenido / MarkDown</label>
+                        <label>Contenido / MarkDown *</label>
                         <vue-simplemde v-model="content" ref="markdownEditor" />
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>

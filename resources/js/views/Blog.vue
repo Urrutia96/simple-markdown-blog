@@ -3,9 +3,7 @@
         <div class="card mt-2">            
             <div class="card-body">
                 <h5 class="card-title">{{ articulo.titulo }}</h5>
-                <p>
-                    {{ articulo.content }}
-                </p>
+                <p v-html="articulo.content"></p>
             </div>
         </div>
     </div>
@@ -20,9 +18,9 @@ export default {
     },
     methods: {
         fill(){
-            axios.get('/api/blog/'+this.$router.params.slug)
+            axios.get('/api/blog/'+this.$route.params.slug)
             .then(response => {
-                this.articulo = response.data
+                this.articulo = response.data.data
             });
         }
     },

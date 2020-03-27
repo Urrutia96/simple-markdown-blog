@@ -1957,8 +1957,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1969,8 +1967,8 @@ __webpack_require__.r(__webpack_exports__);
     fill: function fill() {
       var _this = this;
 
-      axios.get('/api/blog/' + this.$router.params.slug).then(function (response) {
-        _this.articulo = response.data;
+      axios.get('/api/blog/' + this.$route.params.slug).then(function (response) {
+        _this.articulo = response.data.data;
       });
     }
   },
@@ -2017,7 +2015,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/api/blog').then(function (response) {
-        _this.articulos = response.data;
+        _this.articulos = response.data.data;
       });
     }
   },
@@ -55529,13 +55527,7 @@ var render = function() {
           _vm._v(_vm._s(_vm.articulo.titulo))
         ]),
         _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "\n                " +
-              _vm._s(_vm.articulo.content) +
-              "\n            "
-          )
-        ])
+        _c("p", { domProps: { innerHTML: _vm._s(_vm.articulo.content) } })
       ])
     ])
   ])
@@ -55592,8 +55584,7 @@ var render = function() {
                   }
                 },
                 [_vm._v("Leer articulo")]
-              ),
-              _vm._v(">\n            ")
+              )
             ],
             1
           )
@@ -55668,7 +55659,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "titulo" } }, [_vm._v("titulo")]),
+              _c("label", { attrs: { for: "titulo" } }, [_vm._v("titulo*")]),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -55695,7 +55686,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "descripcion" } }, [
-                _vm._v("Descripcion")
+                _vm._v("Descripcion*")
               ]),
               _vm._v(" "),
               _c("textarea", {
@@ -55703,8 +55694,8 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.decripcion,
-                    expression: "decripcion"
+                    value: _vm.descripcion,
+                    expression: "descripcion"
                   }
                 ],
                 staticClass: "form-control",
@@ -55713,13 +55704,13 @@ var render = function() {
                   rows: "3",
                   placeholder: "Breve descripcion para el incio"
                 },
-                domProps: { value: _vm.decripcion },
+                domProps: { value: _vm.descripcion },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.decripcion = $event.target.value
+                    _vm.descripcion = $event.target.value
                   }
                 }
               })
@@ -55729,7 +55720,7 @@ var render = function() {
               "div",
               { staticClass: "form-group" },
               [
-                _c("label", [_vm._v("Contenido / MarkDown")]),
+                _c("label", [_vm._v("Contenido / MarkDown *")]),
                 _vm._v(" "),
                 _c("vue-simplemde", {
                   ref: "markdownEditor",

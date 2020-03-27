@@ -7,7 +7,7 @@
                     <p class="card-text">
                         {{ articulo.descripcion }}                        
                     </p>
-                    <router-link :to="{ name: 'blog', params: { slug: articulo.slug } }" class="btn btn-primary">Leer articulo</router-link>>
+                    <router-link :to="{ name: 'blog', params: { slug: articulo.slug } }" class="btn btn-primary">Leer articulo</router-link>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@ export default {
         fill() {
             axios.get('/api/blog')
             .then(response => {
-                this.articulos = response.data
+                this.articulos = response.data.data
             })
         }
     },
